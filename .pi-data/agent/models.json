@@ -18,6 +18,10 @@
           "contextWindow": 65000
         },
         {
+          "id": "qwen/qwen3-32b",
+          "contextWindow": 65000
+        },
+        {
           "id": "openai/gpt-oss-20b",
           "contextWindow": 65000
         }
