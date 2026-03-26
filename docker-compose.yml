@@ -43,7 +43,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ${PWD}/.pi-data
+      device: ${HOME}/.pi
 
   workspace:
     driver: local
