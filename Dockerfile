@@ -46,7 +46,7 @@ FROM base AS release
 
 # Install the pi-coding-agent globally
 # We verify the registry connection implicitly during install
-RUN npm install -g @mariozechner/pi-coding-agent@0.65.0
+RUN npm install -g @mariozechner/pi-coding-agent@0.67.2
 
 # Verify installation
 RUN pi --version
