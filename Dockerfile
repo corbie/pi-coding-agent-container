@@ -54,7 +54,7 @@ FROM base AS release
 
 # Install the pi-coding-agent globally
 # We verify the registry connection implicitly during install
-RUN npm install -g @mariozechner/pi-coding-agent@0.67.68
+RUN npm install -g @mariozechner/pi-coding-agent@0.70.2
 
 # Install pi packages
 RUN pi install npm:token-rate-pi@latest
