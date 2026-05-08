@@ -33,7 +33,7 @@ FROM base AS release
 
 WORKDIR /workspace
 
-RUN npm install -g @mariozechner/pi-coding-agent@0.73.0 \
+RUN npm install -g @earendil-works/pi-coding-agent@0.74.0 \
     pi install npm:token-rate-pi@latest
 
 USER node
