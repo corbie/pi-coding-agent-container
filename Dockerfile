@@ -1,5 +1,5 @@
 # base image
-FROM ubuntu:25.10 AS base
+FROM ubuntu:26.04 AS base
 
 ENV NODE_ENV=production
 ENV DEBIAN_FRONTEND=noninteractive
@@ -33,7 +33,7 @@ FROM base AS release
 
 WORKDIR /workspace
 
-RUN npm install -g @earendil-works/pi-coding-agent@0.74.0 \
+RUN npm install -g @earendil-works/pi-coding-agent@0.78.0 \
     pi install npm:token-rate-pi@latest
 
 USER node
