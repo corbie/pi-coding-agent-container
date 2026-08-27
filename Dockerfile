@@ -33,8 +33,9 @@ FROM base AS release
 
 WORKDIR /workspace
 
-RUN npm install -g @earendil-works/pi-coding-agent@0.78.0 \
-    pi install npm:token-rate-pi@latest
+RUN npm install -g @earendil-works/pi-coding-agent@0.84.3 \
+    pi install npm:token-rate-pi@latest \
+    pi install npm:pi-web-access
 
 USER node
 ENTRYPOINT ["pi"]
