@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pipx \
     procps \
     python3 \
+    python3-pytest \
     vim \
     wget \
     && rm -rf /var/lib/apt/lists/*
@@ -35,7 +36,10 @@ WORKDIR /workspace
 
 RUN npm install -g @earendil-works/pi-coding-agent@0.84.3 \
     pi install npm:token-rate-pi@latest \
-    pi install npm:pi-web-access
+    pi install npm:pi-web-access \
+    pi install npm:pi-mcp-adapter \
+    pi install npm:pi-subagents \
+    pi install npm:@agnishc/edb-agent-steer
 
 USER node
 ENTRYPOINT ["pi"]
