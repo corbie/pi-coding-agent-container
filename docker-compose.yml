@@ -5,25 +5,35 @@ services:
       dockerfile: Dockerfile
     image: local/pi-coding-agent:latest
     container_name: pi_coding_agent
-    
     tty: true
     stdin_open: true
-
     environment:
       - EDITOR=vim
-
     volumes:
       - workspace:/workspace
       - pi_data:/home/node/.pi
-      
     user: "${UID:-1001}:${GID:-1001}"
-    
     # Use local host port for Google OAuth redirect service
     network_mode: "host"
     ports:
       - "8085:8085"
-
     restart: "no"
+    depends_on:
+      mcp-grafana:
+        condition: service_started
+
+  mcp-grafana:
+    image: grafana/mcp-grafana
+    container_name: mcp_grafana
+    environment:
+      - GRAFANA_URL=https://scratchpay.grafana.net
+      - GRAFANA_SERVICE_ACCOUNT_TOKEN=
+    ports:
+      - "8000:8000"
+    restart: "no"
+    command:
+      - -t
+      - sse
 
 volumes:
   pi_data:
