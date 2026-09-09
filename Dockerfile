@@ -6,9 +6,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV NPM_CONFIG_LOGLEVEL=warn
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    binutils \
     build-essential \
     ca-certificates \
     curl \
+    file \
     git \
     jq \
     nodejs \
@@ -17,6 +19,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     procps \
     python3 \
     python3-pytest \
+    unzip \
     vim \
     wget \
     && rm -rf /var/lib/apt/lists/*
@@ -34,11 +37,12 @@ FROM base AS release
 
 WORKDIR /workspace
 
-RUN npm install -g @earendil-works/pi-coding-agent@0.84.3 \
-    pi install npm:token-rate-pi@latest \
-    pi install npm:pi-web-access \
+RUN npm install -g @earendil-works/pi-coding-agent@0.85 \
+    pi install npm:pi-ask-user \
     pi install npm:pi-mcp-adapter \
     pi install npm:pi-subagents \
+    pi install npm:pi-web-access \
+    pi install npm:token-rate-pi@latest \
     pi install npm:@agnishc/edb-agent-steer
 
 USER node
