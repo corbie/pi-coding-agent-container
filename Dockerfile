@@ -18,11 +18,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pipx \
     procps \
     python3 \
+    python3-pip \
     python3-pytest \
     unzip \
     vim \
     wget \
     && rm -rf /var/lib/apt/lists/*
+
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 
 RUN useradd -U node
 
